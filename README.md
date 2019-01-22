@@ -4,9 +4,8 @@
 
 ```swift
 NotificationCenter.default.post(name: Notification.name.init("IDENTIFICADOR"), object: self)
-
-// NOTA: el self es del viewcontroller donde se registra la notificación
 ```
+NOTA: el self es del viewcontroller donde se registra la notificación
 
 ## 2 - En ViewController del observador declaramos la variable que contendra el observador si no queremos que se afecte este viewController si se ejecuta el mismo NotificationCenter por otro ViewController
 
@@ -19,18 +18,18 @@ var observer: NSObjectProtocol?
 ```swift
 override func viewDidAppear(_ animated: Bool) {
 	super.viewDidAppear(true)
-    
-   observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.init("IDENTIFICADOR"), object: nil, queue: OperationQueue.main, using: { (Notification) in
-			
-    let vc = Notification.object as!  DateModalViewController
-		
-	if let dt = vc.dateSelected{
-	    self.dateLabel.text = dt
-	}else{
-		self.dateLabel.text = "No esta funcionando"
-	}
-})
 
+	observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.init("dateModal"), object: nil, queue: OperationQueue.main, using: { (Notification) in
+
+		let vc = Notification.object as!  DateModalViewController
+
+		if let dt = vc.dateSelected{
+			self.dateLabel.text = dt
+		}else{
+			self.dateLabel.text = "No esta funcionando"
+		}
+	})
+}
 ```
 
 ## 4 - Quito el registro de mi observador

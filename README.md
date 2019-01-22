@@ -19,7 +19,7 @@ var observer: NSObjectProtocol?
 override func viewDidAppear(_ animated: Bool) {
 	super.viewDidAppear(true)
 
-	observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.init("dateModal"), object: nil, queue: OperationQueue.main, using: { (Notification) in
+	observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.init("IDENTIFICADOR"), object: nil, queue: OperationQueue.main, using: { (Notification) in
 
 		let vc = Notification.object as!  DateModalViewController
 

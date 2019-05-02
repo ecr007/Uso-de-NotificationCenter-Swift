@@ -3,7 +3,7 @@
 ## 1 - Posteo la notificacion a ser recivida en cualquier lugar de mi app
 
 ```swift
-NotificationCenter.default.post(name: Notification.name.init("IDENTIFICADOR"), object: self)
+NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "KEY"), object: self)
 ```
 NOTA: el self es del viewcontroller donde se registra la notificación
 

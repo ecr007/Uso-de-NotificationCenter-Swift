@@ -46,8 +46,9 @@ override func viewDidDisappear(_ animated: Bool) {
 
 # Como Recivir notificaciones en Swift UI
 
-```
-.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.init(Env.NC_KEY_REFRESH_WIDGET)) ) { notification in
+```swift
+.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.init(Env.NC_KEY_REFRESH_WIDGET)) ) {
+	notification in
 
 
 	if let filter = notification.object as? FilterModel{
